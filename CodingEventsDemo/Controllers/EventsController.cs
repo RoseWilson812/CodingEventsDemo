@@ -28,9 +28,9 @@ namespace coding_events_practice.Controllers
 
         [HttpPost]
         [Route("Events/Add")]
-        public IActionResult NewEvent(string name, string desc)
+        public IActionResult NewEvent(Event newEvent)
         {
-            EventData.Add(new Event(name, desc));
+            EventData.Add(newEvent);
             
 
             return Redirect("/Events");

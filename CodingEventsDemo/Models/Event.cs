@@ -14,6 +14,7 @@ namespace CodingEventsDemo.Models
         public int NumAttending { get; set; }
 
         public string ContactEmail { get; set; }
+        public EventType Type { get; set; }
 
         public int Id { get; }
         static private int nextId = 1;
@@ -25,6 +26,7 @@ namespace CodingEventsDemo.Models
             Location = location;
             NumAttending = numAttending;
             ContactEmail = contactEmail;
+            
             Id = nextId;
             nextId++;
         }

@@ -6,23 +6,17 @@ namespace CodingEventsDemo.Models
     public class Event
     {
         public string Name { get; set; }
-
         public string Description { get; set; }
-
         public string ContactEmail { get; set; }
-
         public EventType Type { get; set; }
-
-        public int Id { get; }
-        static private int nextId = 1;
-
+        // added set; to Id, removed nextId and added public Event() constructor
+        public int Id { get; set; }
+        
         public Event()
         {
-            Id = nextId;
-            nextId++;
-        }
 
-        public Event(string name, string description, string contactEmail) : this()
+        }
+        public Event(string name, string description, string contactEmail) 
         {
             Name = name;
             Description = description;

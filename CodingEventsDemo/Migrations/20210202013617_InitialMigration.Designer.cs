@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodingEventsDemo.Migrations
 {
     [DbContext(typeof(EventDbContext))]
-    [Migration("20200625205525_CategoryMigration")]
-    partial class CategoryMigration
+    [Migration("20210202013617_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

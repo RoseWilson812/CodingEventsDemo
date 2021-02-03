@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using CodingEventsDemo.Data;
@@ -12,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace coding_events_practice.Controllers
 {
+    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public class EventsController : Controller
     {
 
@@ -89,9 +91,18 @@ namespace coding_events_practice.Controllers
             Event theEvent = context.Events
                .Include(e => e.Category)
                .Single(e => e.Id == id);
+               List<EventTag> eventTags = context.EventTags
+                .Where (et => et.EventId == id)
+                .Include(et => et.Tag)
+                .ToList();
 
-            EventDetailViewModel viewModel = new EventDetailViewModel(theEvent);
+            EventDetailViewModel viewModel = new EventDetailViewModel(theEvent, eventTags);
             return View(viewModel);
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
         }
     }
 }
